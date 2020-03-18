@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferdighet 5</title>
-</head>
-<body>
-    <button onclick="clickTest()">Click me for a bit of fun</button>
-    <div id="a"></div>
-    
-    <script>    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ferdighet 5</title>
+    </head>
+    <body>
+        <p id="onLoadEvent">Watch this space...</p>
 
-      function test() {
-            document.getElementById('a').innerHTML =+ '' + new Date().toTimeString();
-        }    
-        function clickTest()    {
-            alert ("Hello");
-        }
-    </script>
-</body>
+        
+
+        <button onclick="clickTest()">Click me for a bit of fun</button>
+        <div id="divId1"></div>
+
+        <script>
+            var wordsToUse = [
+                "Something happened here",
+                "Something else just happened",
+                "Dont keep clicking here otherwise you might make it angry",
+                "Oh heeeeell nah you didnt just...",
+                "...",
+                "You gone done it now...",
+                "go",
+            ];
+
+            var intSentenceIndex = 0;
+
+            function clickTest() {
+                if   (intSentenceIndex == wordsToUse.length){intSentenceIndex = 0;}   
+                document.getElementById("onLoadEvent").innerHTML =
+                    wordsToUse[intSentenceIndex];
+                intSentenceIndex++; 
+
+
+                if (intSentenceIndex == 6) {
+                    window.location.href = 'http://www.staggeringbeauty.com/';
+                }
+            }
+            
+        </script>
+
+            
+    </body>
 </html>
+
+<!-- Oppgave: Lag en enkel html-side som legger til tekst i en div både direkte i
+script-taggen og via en funksjon som blir kalt fra body sin onload-event. Logg
+tidspunktet for begge deler vha. denne koden:
+document.getElementById('a').innerHTML = '' + new Date().toTimeString(); Legg
+inn et stort bilde på websiden og se hvordan dette påvirker tidene. Husk å
+reloade siden med ctrl-f5 for å tvinge den til å laste inn bildet - og ikke bare
+hente det fra cache. -->
